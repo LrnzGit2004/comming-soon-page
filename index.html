@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comming soon page</title>
+    <link rel="shortcut icon" href="/assets/3136430.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p class="title">Countdown for:</p>
+        <h1><span>Andy's</span> Birthday</h1>
+        <div class="clock-container">
+            <div >
+                <h2 id="days">00</h2>
+                <p>Days</p>
+            </div>
+            <div >
+                <h2 id="hours">00</h2>
+                <p>hours</p>
+            </div>
+            <div >
+                <h2 id="minutes">00</h2>
+                <p>minutes</p>
+            </div>
+            <div >
+                <h2 id="seconds">00</h2>
+                <p class="space">seconds</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <!-- <img src="assets/maman2.png" alt=""> -->
+        <img src="assets/maman7.jpg" alt="">
+        <img src="assets/maman6.png" alt="">
+        <img src="assets/maman3.png" alt="">
+    </div>
+
+    <img class="rocket" src="assets/rocket.png" alt="">
+    
+
+    <script>
+
+        const deadLine = new Date('october 18, 2024').getTime() //dead line
+        
+        let x = setInterval(function(){
+            let dateNow = new Date().getTime();
+             //renvoi le nombre de millisecondes écoulées depuis le 01/01/'70
+             let distance = deadLine - dateNow
+             //console.log(distance)
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // document.getElementsById("days").innerHTML = days;
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds
+
+            if(distance < 0) {
+            document.getElementById("days").innerHTML = "Happy";
+            document.getElementById("hours").innerHTML = "BirthDay";
+            document.getElementById("minutes").innerHTML = "Mother";
+            document.getElementById("seconds").innerHTML = "♥♥♥" 
+            }
+        }, 1000) 
+    </script>
+</body>
+</html>
